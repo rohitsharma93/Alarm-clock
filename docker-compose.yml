@@ -1,0 +1,15 @@
+version: '3'
+services:
+  image:
+    build: .    
+    ports:
+      - "8088:8092"    
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0.31
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=mydb    
+    ports:
+      - 8093:3306
